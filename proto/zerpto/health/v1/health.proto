@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+// Example contract. Each service owns its own `proto/zerpto/<service>/v1/`
+// directory. Rules: never reuse or renumber a field, add fields instead of
+// changing them, and bump the package version (v2) for breaking changes.
+package zerpto.health.v1;
+
+service Health {
+  // Liveness probe for service-to-service calls.
+  rpc Check(CheckRequest) returns (CheckResponse);
+}
+
+message CheckRequest {}
+
+message CheckResponse {
+  string status = 1;
+  string service = 2;
+}
